@@ -1,0 +1,82 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.py[cod]
+*.so
+
+# Virtual environment
+venv/
+.env/
+.envrc
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# =========================
+# Jupyter Notebook
+# =========================
+.ipynb_checkpoints
+
+# =========================
+# Data files
+# =========================
+data/raw/*
+data/processed/*
+
+# Keep folder structure
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# =========================
+# Models
+# =========================
+models/
+*.pkl
+*.joblib
+*.h5
+*.model
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+
+# =========================
+# MLflow
+# =========================
+mlruns/
+
+# =========================
+# Streamlit
+# =========================
+.streamlit/
+
+# =========================
+# VSCode
+# =========================
+.vscode/
+
+# =========================
+# MacOS
+# =========================
+.DS_Store
+
+# =========================
+# Docker
+# =========================
+*.tar
+docker-compose.override.yml
+
+# =========================
+# Temporary files
+# =========================
+*.tmp
+*.swp
