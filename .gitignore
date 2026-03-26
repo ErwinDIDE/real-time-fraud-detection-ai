@@ -39,7 +39,7 @@ data/processed/*
 # Models
 # =========================
 models/
-*.pkl
+# *.pkl
 *.joblib
 *.h5
 *.model
