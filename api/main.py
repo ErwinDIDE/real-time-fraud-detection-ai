@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 import joblib
 import pandas as pd
+from typing import List
 
 # Création de l'API
 app = FastAPI()
@@ -14,13 +15,19 @@ def home():
 
 # Création de la route API
 @app.post("/prediction")
-def prediction(data: dict):
-    df = pd.DataFrame([data])
+def prediction(transactions: List[dict]):
+    df = pd.DataFrame(transactions)
 
-    prediction = model.predict(df)[0]
-    probabilitefraude = model.predict_proba(df)[0][1]
+    predictions = model.predict(df)
+    probabilitesfraude = model.predict_proba(df)[:, 1]
 
-    return {
-        "prediction" : int(prediction) ,
-        "probabilitefraude" : float(probabilitefraude)
-    }
+    #On retourne la liste des résultats
+    resultats = []
+
+    #On associe chaque prédiction à sa probabilité (zip) et on affiche le résultat
+    for prediction, probabilitefraude in  zip(predictions, probabilitesfraude):
+        resultats.append({
+            "prediction": int(prediction),
+            "probabilitedefraude": float(probabilitefraude)
+        })
+    return resultats
